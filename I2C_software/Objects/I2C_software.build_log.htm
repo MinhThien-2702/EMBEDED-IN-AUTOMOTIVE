@@ -69,17 +69,17 @@ void I2C_Config() {
 ^
 static 
 main.c(62): warning: no previous prototype for function 'I2C_Start' [-Wmissing-prototypes]
-void I2C_Start() {
+void I2C_Start() {// khi bat dau truyen tao tin hieu start
      ^
 main.c(62): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void I2C_Start() {
+void I2C_Start() {// khi bat dau truyen tao tin hieu start
 ^
 static 
 main.c(73): warning: no previous prototype for function 'I2C_Stop' [-Wmissing-prototypes]
-void I2C_Stop() {
+void I2C_Stop() {// tin hieu stop ket thuc truyen nhan
      ^
 main.c(73): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void I2C_Stop() {
+void I2C_Stop() {// tin hieu stop ket thuc truyen nhan
 ^
 static 
 main.c(82): warning: no previous prototype for function 'I2C_Write' [-Wmissing-prototypes]
@@ -97,7 +97,7 @@ uint8_t I2C_Read(ACK_Bit _ACK) {
 ^
 static 
 main.c(159): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-    if (I2C_Write(u16Address) == NOT_OK) {  // G?i byte th?p c?a d?a ch?
+    if (I2C_Write(u16Address) == NOT_OK) {  // Ghi byte thap cua dia chi
         ~~~~~~~~~ ^~~~~~~~~~
 main.c(148): warning: no previous prototype for function 'at24c32_read' [-Wmissing-prototypes]
 status at24c32_read(uint16_t u16Address, uint8_t slaveaddress, uint16_t u16Num, uint8_t *pu8Data) {
@@ -155,30 +155,30 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:6.1.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\misc.h
       Source file:   Device\StdPeriph_Driver\src\misc.c
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
       Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
 
    * Component: Keil::Device:StdPeriph Drivers:TIM:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

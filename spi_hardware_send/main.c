@@ -74,7 +74,7 @@ uint8_t SPI_Receive1Byte(void){
     return temp;// tra ve gia tri (ham nhan va tra ve 1byte)
 }
 
-uint8_t data[] = {28, 4, 13, 55};
+uint8_t data[7] = {28, 4, 13, 55, 32, 41, 91};
 int main(){
 RCC_Config();
 GPIO_Config();
@@ -82,7 +82,7 @@ SPI_Config();
 TIMER_config();
 
 while(1){
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 7; i++) {
             SPI_Send1Byte(data[i]);
             delay_ms(1000); 
         }

@@ -1,0 +1,185 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: thien ASUS, acb, LIC=PE7DL-0MHCQ-74AS0-BTADE-TN503-VRAM7
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.14
+Assembler:       Armasm.exe V6.14
+Linker/Locator:  ArmLink.exe V6.14
+Library Manager: ArmAr.exe V6.14
+Hex Converter:   FromElf.exe V6.14
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\EMBEDED IN AUTOMOTIVE\DMA_SPI\dma_spi.uvprojx
+Project File Date:  09/04/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(15): warning: no previous prototype for function 'RCC_Config' [-Wmissing-prototypes]
+void RCC_Config(){
+     ^
+main.c(15): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void RCC_Config(){
+^
+static 
+main.c(21): warning: no previous prototype for function 'DMA_Config' [-Wmissing-prototypes]
+void DMA_Config(){
+     ^
+main.c(21): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void DMA_Config(){
+^
+static 
+main.c(41): warning: no previous prototype for function 'GPIO_Config' [-Wmissing-prototypes]
+void GPIO_Config(void){
+     ^
+main.c(41): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void GPIO_Config(void){
+^
+static 
+main.c(50): warning: no previous prototype for function 'SPI_Config' [-Wmissing-prototypes]
+void SPI_Config(void){
+     ^
+main.c(50): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void SPI_Config(void){
+^
+static 
+main.c(1): warning: In file included from...
+C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(8347): warning: In file included from...
+./RTE/Device/STM32F103C8\stm32f10x_conf.h(87): warning: In file included from...
+C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_tim.h(50): warning: padding size of 'TIM_TimeBaseInitTypeDef' with 1 byte to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(66): warning: no previous prototype for function 'TIMER_config' [-Wmissing-prototypes]
+void TIMER_config(void){
+     ^
+main.c(66): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIMER_config(void){
+^
+static 
+main.c(78): warning: no previous prototype for function 'delay_ms' [-Wmissing-prototypes]
+void delay_ms(uint16_t timedelay){
+     ^
+main.c(78): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void delay_ms(uint16_t timedelay){
+^
+static 
+main.c(83): warning: declaration shadows a variable in the global scope [-Wshadow]
+void SPI_Send1Byte(uint8_t data){
+                           ^
+main.c(14): note: previous declaration is here
+uint8_t data[7];
+        ^
+main.c(83): warning: no previous prototype for function 'SPI_Send1Byte' [-Wmissing-prototypes]
+void SPI_Send1Byte(uint8_t data){
+     ^
+main.c(83): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void SPI_Send1Byte(uint8_t data){
+^
+static 
+main.c(90): warning: no previous prototype for function 'SPI_Receive1Byte' [-Wmissing-prototypes]
+uint8_t SPI_Receive1Byte(void){
+        ^
+main.c(90): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint8_t SPI_Receive1Byte(void){
+^
+static 
+main.c(98): warning: no previous extern declaration for non-static variable 'i' [-Wmissing-variable-declarations]
+uint32_t i =0;
+         ^
+main.c(98): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint32_t i =0;
+^
+main.c(108): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(14): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
+uint8_t data[7];
+        ^
+main.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t data[7];
+^
+13 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=1540 RO-data=252 RW-data=0 ZI-data=1640  
+".\Objects\dma_spi.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM.CMSIS.6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+   * Component: DMA Version: 3.6.0
+   * Component: Framework Version: 3.6.0
+   * Component: GPIO Version: 3.6.0
+   * Component: RCC Version: 3.6.0
+   * Component: SPI Version: 3.6.0
+   * Component: TIM Version: 3.6.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F103C8
+  .\RTE\_Target_1
+  C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include
+  C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include
+  C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:6.1.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+
+   * Component: Keil::Device:StdPeriph Drivers:DMA:3.6.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+
+   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
+
+   * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+
+   * Component: Keil::Device:StdPeriph Drivers:SPI:3.6.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
+
+   * Component: Keil::Device:StdPeriph Drivers:TIM:3.6.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

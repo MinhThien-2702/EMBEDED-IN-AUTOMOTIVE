@@ -22,7 +22,7 @@ typedef enum {
 } ACK_Bit;
 
 void RCC_Config() {
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);//cap xung clock a b6 -scl b7 -sda
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 }
 
@@ -59,21 +59,21 @@ void I2C_Config() {
     delay_us(1);
 }
 
-void I2C_Start() {
-    WRITE_SCL_1;
+void I2C_Start() {// khi bat dau truyen tao tin hieu start
+    WRITE_SCL_1;// keo len 1 de dam bao sda o muc cao 
     delay_us(3);
     WRITE_SDA_1;
     delay_us(3);
-    WRITE_SDA_0;
+    WRITE_SDA_0;// keo sda xuong 0 truoc scl 1 khoang delay
     delay_us(3);
     WRITE_SCL_0;
     delay_us(3);
 }
 
-void I2C_Stop() {
-    WRITE_SDA_0;
+void I2C_Stop() {// tin hieu stop ket thuc truyen nhan
+    WRITE_SDA_0;// keo sda xuong de dam bao scl duoc keo len truoc
     delay_us(3);
-    WRITE_SCL_1;
+    WRITE_SCL_1;// keo scl len truoc sda 1 khoang delay
     delay_us(3);
     WRITE_SDA_1;
     delay_us(3);
@@ -148,15 +148,15 @@ uint8_t I2C_Read(ACK_Bit _ACK) {
 status at24c32_read(uint16_t u16Address, uint8_t slaveaddress, uint16_t u16Num, uint8_t *pu8Data) {
     uint16_t i;
     I2C_Start();
-    if (I2C_Write(slaveaddress) == NOT_OK) {  // Ð?a ch? slave
+    if (I2C_Write(slaveaddress) == NOT_OK) {  // Ðia chi slave
         I2C_Stop();
         return NOT_OK;
     }
-    if (I2C_Write(u16Address >> 8) == NOT_OK) {  // G?i byte cao c?a d?a ch?
+    if (I2C_Write(u16Address >> 8) == NOT_OK) {  // Ghi byte cao cua dia chi
         I2C_Stop();
         return NOT_OK;
     }
-    if (I2C_Write(u16Address) == NOT_OK) {  // G?i byte th?p c?a d?a ch?
+    if (I2C_Write(u16Address) == NOT_OK) {  // Ghi byte thap cua dia chi
         I2C_Stop();
         return NOT_OK;
     }
@@ -200,7 +200,7 @@ status at24c32_write(uint16_t u16Address, uint8_t slaveaddress, uint16_t u16Num,
 }
 
 int main() {
-    uint8_t write_data[] = {0x12, 0x34, 0x56, 0x78};
+    uint8_t write_data[4] = {0x12, 0x34, 0x56, 0x78};
     uint8_t read_data[4];
     uint16_t address = 0x0000;
     uint8_t eeprom_address = 0xA0;  // Ð?a ch? c?a EEPROM AT24C32

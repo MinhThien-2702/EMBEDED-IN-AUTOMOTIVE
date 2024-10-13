@@ -25,18 +25,12 @@ void GPIO_Config(void){
 void TIMER_config(void){
     TIM_TimeBaseInitTypeDef TIM_InitStruct;
     
-    TIM_InitStruct.TIM_ClockDivision = TIM_CKD_DIV2; //Chia thanh clock nho hon de cap cho timer default: 72MHz (1s tao duoc 72 trieu dao dong) , DIV1: khong chia
-    TIM_InitStruct.TIM_Prescaler = 36000; //Sau bao nhieu dao dong thi se dem len 1 lan.  1s = 72M giao dong, gia tri < 65535, neu lon hon thi doi bo chia
-    //VD muon 1ms dem len 1 lan thi (10^-3)/(1/36M) = 36000 dao dong
+    TIM_InitStruct.TIM_ClockDivision = TIM_CKD_DIV2; //Chia thanh clock nho hon de cap cho timer default: 72MHz 
+    TIM_InitStruct.TIM_Prescaler = 36000; 
     TIM_InitStruct.TIM_Period  = 0xFFFF;//Dem bao nhieu lan thi reset
     TIM_InitStruct.TIM_CounterMode = TIM_CounterMode_Up; //Set mode dem len tu 0
     TIM_TimeBaseInit(TIM2, &TIM_InitStruct);
-    
     TIM_Cmd(TIM2, ENABLE); //Cho phep timer2 hoat dong
-    
-    //chia clock cho 2 de 1s tao duoc 36.000.000 dao dong trong 1s, tuc 1 dao dong mat 1/36.000.000
-    //Prescaler = 36.000 tuc la voi moi 36.000 dao dong thi dem len 1 lan
-    //tuc la mat (1/36.000.000)*(36.000) = 1/1000s = 1ms thi dem len mot lan
 }
 
 void delay_ms(uint16_t timedelay){
@@ -54,7 +48,6 @@ void UART_Config(void){
 	UARTInitStruct.USART_StopBits = USART_StopBits_1;
 	
 	USART_Init(USART1, &UARTInitStruct);
-	
 	USART_Cmd(USART1, ENABLE);
 	
 }
