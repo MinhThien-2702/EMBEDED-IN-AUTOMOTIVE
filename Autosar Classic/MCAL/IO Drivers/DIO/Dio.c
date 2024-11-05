@@ -1,10 +1,17 @@
+/**
+* @file Dio.c
+* @brief DIO Driver implementation according to AUTOSAR Classic.
+* @details This file contains the implementation of the DIO driver as per AUTOSAR specifications.
+* @author Nguyen Minh Thien
+* @date
+*/
 #include "Dio.h"
 #include "Std_Types.h" // AUTOSAR Standard types
 
 /* List of pointers to all ports of STM32F1 */
 static const GPIO_TypeDefPtr GPIO_ports[] = { GPIOA, GPIOB, GPIOC, GPIOD };
 
-/*
+/**
 * @brief Returns the level of all channels of the specified port.
 * @param PortId ID of the DIO Port.
 * @return Dio_PortLevelType Level of all channels of that port.
@@ -13,7 +20,7 @@ Dio_PortLevelType Dio_ReadPort (Dio_PortType PortId) {
     return GPIO_Read(GPIO_ports[PortId]);
 }
 
-/*
+/**
 * @brief Service to set a value of the specified port.
 * @param PortId ID of the DIO Port.
 * @param Level Value to be written to the port.
@@ -22,7 +29,7 @@ void Dio_WritePort (Dio_PortType PortId, Dio_PortLevelType Level) {
     GPIO_Write(GPIO_ports[PortId], Level);
 }
 
-/*
+/**
 * @brief Returns the value of the specified DIO channel.
 * @param ChannelId ID of the DIO channel.
 * @return Dio_LevelType Level of the channel (STD_HIGH or STD_LOW).
@@ -35,7 +42,7 @@ Dio_LevelType Dio_ReadChannel (Dio_ChannelType ChannelId) {
     return (portVal & bit) != 0U ? STD_HIGH : STD_LOW;
 }
 
-/*
+/**
 * @brief Service to set a level of a specified channel.
 * @param ChannelId ID of the DIO channel.
 * @param Level Value to be written (STD_HIGH or STD_LOW).
@@ -53,7 +60,7 @@ void Dio_WriteChannel (Dio_ChannelType ChannelId, Dio_LevelType Level) {
     Dio_WritePort(port, portVal);
 }
 
-/*
+/**
 * @brief Service to set a subset of the adjoining bits of a port to a specified level.
 * @param ChannelGroupIdPtr Pointer to the channel group.
 * @param Level Value to be written.
@@ -65,7 +72,7 @@ void Dio_WriteChannelGroup (const Dio_ChannelGroupType* ChannelGroupIdPtr, Dio_P
     Dio_WritePort(ChannelGroupIdPtr->port, portVal);
 }
 
-/*
+/**
 * @brief Reads a subset of adjoining bits of a port.
 * @param ChannelGroupIdPtr Pointer to the channel group.
 * @return Dio_PortLevelType The level of the subset of adjoining bits.
@@ -75,7 +82,7 @@ Dio_PortLevelType Dio_ReadChannelGroup (const Dio_ChannelGroupType* ChannelGroup
     return Level >> ChannelGroupIdPtr->offset;
 }
 
-/*
+/**
 * @brief Flips the level of a channel and returns the new level.
 * @param ChannelId ID of the DIO channel.
 * @return Dio_LevelType The new level of the channel after the flip.
@@ -86,7 +93,7 @@ Dio_LevelType Dio_FlipChannel (Dio_ChannelType ChannelId) {
     return Level == STD_HIGH ? STD_LOW : STD_HIGH;
 }
 
-/*
+/**
 * @brief Service to set the value of a port with a required mask.
 * @param PortId ID of the DIO Port.
 * @param Level Value to be written.
@@ -98,7 +105,7 @@ void Dio_MaskedWritePort (Dio_PortType PortId, Dio_PortLevelType Level, Dio_Port
     Dio_WritePort(PortId, maskedLevel);
 }
 
-/*
+/**
 * @brief Service to get the version information of the DIO module.
 * @param VersionInfo Pointer to store the version information.
 */

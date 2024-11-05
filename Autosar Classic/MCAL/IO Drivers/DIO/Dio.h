@@ -1,15 +1,24 @@
+/**
+* @file Dio.h
+* @brief Header file for the DIO driver according to AUTOSAR Classic.
+* @details This file provides the interface for the DIO driver as per AUTOSAR specifications.
+* @version 1.0
+* @date --/--/--
+* @author Nguyen Minh Thien
+*/
 #ifndef DIO_H
 #define DIO_H
 
 #include "Std_Types.h"
 #include "stm32f10x_gpio.h"
 
+/* Định nghĩa các cổng GPIO */
 #define DIO_PORT_A   0  /* Ánh xạ cho cổng GPIOA */
 #define DIO_PORT_B   1  /* Ánh xạ cho cổng GPIOB */
 #define DIO_PORT_C   2  /* Ánh xạ cho cổng GPIOC */
 #define DIO_PORT_D   3  /* Ánh xạ cho cổng GPIOD */
 
-
+/* Macro xác định cổng GPIO dựa trên PortId */
 #define DIO_GET_PORT(PortId) \
     (((PortId) == DIO_PORT_A) ? GPIOA : \
     ((PortId) == DIO_PORT_B) ? GPIOB : \
@@ -92,6 +101,7 @@
 #define DIO_CHANNEL_D14  DIO_CHANNEL(GPIOD, 14)  /* GPIOD Pin 14 */
 #define DIO_CHANNEL_D15  DIO_CHANNEL(GPIOD, 15)  /* GPIOD Pin 15 */
 
+/* Định nghĩa kiểu dữ liệu */
 typedef uint8_t Dio_ChannelType;      /* Đại diện cho một channel (một chân GPIO riêng lẻ) */
 typedef uint16_t Dio_PortType;         /* Đại diện cho một cổng GPIO */
 typedef uint8_t Dio_LevelType;         /* Mức logic của một channel (mức cao hoặc mức thấp) */
@@ -103,20 +113,60 @@ typedef struct {
 } Dio_ChannelGroupType;
 
 /* Các hàm API */
+
+/**
+* @brief Trả về giá trị của kênh DIO được chỉ định.
+* @param ID ChannelId của kênh DIO.
+* @return Dio_LevelType Cấp độ của kênh (STD_HIGH hoặc STD_LOW).
+*/
 Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId);
 
+/**
+* @brief Dịch vụ để đặt cấp độ của một kênh được chỉ định.
+* @param ID ChannelId của kênh DIO.
+* Giá trị cấp độ @param được ghi (STD_HIGH hoặc STD_LOW).
+*/
 void Dio_WriteChannel(Dio_ChannelType ChannelId, Dio_LevelType Level);
 
+/**
+* @brief Trả về cấp độ của tất cả các kênh của cổng được chỉ định.
+* @param ID PortId của Cổng DIO.
+* @return Dio_PortLevelType Cấp độ của tất cả các kênh của cổng đó.
+*/
 Dio_PortLevelType Dio_ReadPort(Dio_PortType PortId);
 
+/**
+* @brief Service to set a value of the specified port.
+* @param PortId ID of the DIO Port.
+* @param Level Value to be written to the port.
+*/
 void Dio_WritePort(Dio_PortType PortId, Dio_PortLevelType Level);
 
+/**
+* @brief Đọc một tập hợp con các bit liền kề của một cổng.
+* @param ChannelGroupIdPtr Con trỏ tới nhóm kênh.
+* @return Dio_PortLevelType Cấp độ của tập hợp con các bit liền kề.
+*/
 Dio_PortLevelType Dio_ReadChannelGroup(const Dio_ChannelGroupType* GroupIdPtr);
 
+/**
+* @brief Dịch vụ đặt một tập hợp con các bit liền kề của một cổng ở một mức được chỉ định.
+* @param ChannelGroupIdPtr Con trỏ tới nhóm kênh.
+* @param Giá trị cấp độ được viết.
+*/
 void Dio_WriteChannelGroup(const Dio_ChannelGroupType* GroupIdPtr, Dio_PortLevelType Level);
 
+/**
+* @brief Dịch vụ lấy thông tin phiên bản của mô-đun DIO.
+* @param VersionInfo Con trỏ để lưu trữ thông tin phiên bản.
+*/
 void Dio_GetVersionInfo(Std_VersionInfoType* VersionInfo);
 
+/**
+* @brief Lật cấp độ của kênh và trả về cấp độ mới.
+* @param ID ChannelId của kênh DIO.
+* @return Dio_LevelType Cấp độ mới của kênh sau khi lật.
+*/
 Dio_LevelType Dio_FlipChannel(Dio_ChannelType ChannelId);
 
 #endif /* DIO_H */
