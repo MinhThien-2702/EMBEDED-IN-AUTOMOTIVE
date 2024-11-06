@@ -1,7 +1,7 @@
 /**
 * @file Spi.c
 * @brief SPI Driver implementation according to AUTOSAR Classic.
-* @details This file contains the implementation of the DIO driver as per AUTOSAR specifications.
+* @details This file contains the implementation of the SPI driver as per AUTOSAR specifications.
 * @author Nguyen Minh Thien
 * @date
 */
@@ -90,7 +90,18 @@ Std_ReturnType Spi_WriteIB(Spi_ChannelType Channel, const Spi_DataBufferType* Da
 }
 
 
-
+/**
+ * @brief Asynchronously transmits a sequence of jobs via SPI.
+ * 
+ * This function initiates the transmission of a sequence defined by the specified 
+ * sequence type. It checks the initialization status and the validity of the sequence 
+ * before transmitting each job in the sequence.
+ *
+ * @param Sequence The sequence of jobs to be transmitted. 
+ * 
+ * @return E_OK if the transmission was successful, E_NOT_OK if the SPI is not initialized 
+ *         or the sequence is invalid.
+ */
 Std_ReturnType Spi_AsyncTransmit(Spi_SequenceType Sequence) {
     if (SpiStatus == SPI_UNINIT) {
         return E_NOT_OK;  // Return error if SPI is not initialized
@@ -285,6 +296,14 @@ Std_ReturnType Spi_SyncTransmit(Spi_SequenceType Sequence) {
     }
 }
 
+/**
+ * @brief Gets the current hardware unit status of the SPI interface.
+ * 
+ * This function checks the hardware status of the SPI interfaces and determines 
+ * whether they are busy or idle.
+ *
+ * @return SPI_BUSY if either SPI1 or SPI2 is busy, SPI_IDLE if both are idle.
+ */
 Spi_StatusType Spi_GetHWUnitStatus(void) {
     if (Spi_Hw_CheckHWStatus_SPI1() == SPI_BUSY) {
         return SPI_BUSY;  
@@ -295,7 +314,18 @@ Spi_StatusType Spi_GetHWUnitStatus(void) {
     return SPI_IDLE;
 }
 
-
+/**
+ * @brief Cancels the transmission of a specified SPI sequence.
+ * 
+ * This function cancels an ongoing transmission for a specified sequence, if valid. 
+ * It checks the initialization status and ensures that the sequence is defined before 
+ * attempting to cancel.
+ *
+ * @param Sequence The sequence to be canceled. 
+ * 
+ * @return E_OK if the cancellation was successful, E_NOT_OK if the SPI is not initialized 
+ *         or the sequence is invalid.
+ */
 Std_ReturnType Spi_Cancel(Spi_SequenceType Sequence) {
     if (SpiStatus == SPI_UNINIT) {
         return E_NOT_OK;  
@@ -338,9 +368,13 @@ Std_ReturnType Spi_SetAsyncMode(Spi_AsyncModeType Mode) {
     }
     return E_OK;
 }
+
 /**
- * Main function for handling SPI operations in polling mode.
- * Checks and updates job and sequence statuses.
+ * @brief Handles the main function for SPI operations.
+ * 
+ * This function processes ongoing SPI operations by checking the status of the SPI 
+ * hardware and updating job and sequence results accordingly. It should be called 
+ * periodically in the main loop of the application.
  */
 void Spi_MainFunction_Handling(void) {
     if (SpiStatus == SPI_UNINIT) {
@@ -348,20 +382,21 @@ void Spi_MainFunction_Handling(void) {
     }
     Spi_StatusType spi1Status = Spi_Hw_CheckHWStatus_SPI1();
     Spi_StatusType spi2Status = Spi_Hw_CheckHWStatus_SPI2();
+    // Update job result for SPI1 if it's busy
     if (spi1Status == SPI_BUSY) {
         if (JobResult == SPI_JOB_PENDING) {
            
             JobResult = SPI_JOB_OK; 
         }
     }
-
+    // Update job result for SPI2 if it's busy
     if (spi2Status == SPI_BUSY) {
         if (JobResult == SPI_JOB_PENDING) {
 
             JobResult = SPI_JOB_OK;  
         }
     }
-
+    // Handle sequence results based on job outcomes
     if (SeqResult == SPI_SEQ_PENDING) {
         if (JobResult == SPI_JOB_OK) {
             SeqResult = SPI_SEQ_OK;  

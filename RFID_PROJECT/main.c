@@ -14,20 +14,20 @@ int main() {
 	My_GPIO_Init();
 	TM_MFRC522_Init();
 	PWM_Init();
-//	I2C_LCD_Init();
-//	I2C_LCD_Clear();
-//	I2C_LCD_BackLight(1);
-//	I2C_LCD_Puts("STM32 - MFRC522");
-//	I2C_LCD_NewLine();
-//	I2C_LCD_Puts("vidieukhien.org");
+	I2C_LCD_Init();
+	I2C_LCD_Clear();
+	I2C_LCD_BackLight(1);
+	I2C_LCD_Puts("STM32 - MFRC522");
+	I2C_LCD_NewLine();
+	I2C_LCD_Puts("RFID_PROJECT");
 	
 	while(1) {
 		if (TM_MFRC522_Check(CardID) == MI_OK) {
 			sprintf(szBuff, "ID: 0x%02X%02X%02X%02X%02X", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
-//			I2C_LCD_Clear();
-//			I2C_LCD_Puts("STM32 - MFRC522");
-//			I2C_LCD_NewLine();
-//			I2C_LCD_Puts(szBuff);
+			I2C_LCD_Clear();
+			I2C_LCD_Puts("STM32 - MFRC522");
+			I2C_LCD_NewLine();
+			I2C_LCD_Puts(szBuff);
 			ServoOn();
 			GPIO_SetBits(GPIOC, GPIO_Pin_13);
 			Delay_Ms(3000);
