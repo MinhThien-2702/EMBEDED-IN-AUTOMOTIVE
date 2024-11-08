@@ -30,8 +30,8 @@ typedef uint8_t Lin_FramePidType;
  * - LIN_CLASSIC_CS: Classic checksum model.
  */
 typedef enum {
-    LIN_ENHANCED_CS = 0,  /**< Enhanced checksum model */
-    LIN_CLASSIC_CS = 1    /**< Classic checksum model */
+    LIN_ENHANCED_CS,  /**< Enhanced checksum model */
+    LIN_CLASSIC_CS    /**< Classic checksum model */
 } Lin_FrameCsModelType;
 
 /** 
@@ -42,9 +42,9 @@ typedef enum {
  * - LIN_FRAMERESPONSE_IGNORE: Response is generated from another node but is irrelevant for this node.
  */
 typedef enum {
-    LIN_FRAMERESPONSE_TX = 0,   /**< Response generated from this node (transmit) */
-    LIN_FRAMERESPONSE_RX = 1,   /**< Response generated from another node, relevant for this node (receive) */
-    LIN_FRAMERESPONSE_IGNORE = 2 /**< Response generated from another node, irrelevant for this node */
+    LIN_FRAMERESPONSE_TX,   /**< Response generated from this node (transmit) */
+    LIN_FRAMERESPONSE_RX,   /**< Response generated from another node, relevant for this node (receive) */
+    LIN_FRAMERESPONSE_IGNORE /**< Response generated from another node, irrelevant for this node */
 } Lin_FrameResponseType;
 
 /** 
@@ -71,17 +71,17 @@ typedef struct {
  * This enumeration represents the possible status codes for LIN frame operations
  */
 typedef enum {
-    LIN_NOT_OK = 0,             /**<  Development or production error occurred */
-    LIN_TX_OK = 1,              /**<  Successful transmission */
-    LIN_TX_BUSY = 2,            /**<  Ongoing transmission (Header or Response) */
-    LIN_TX_HEADER_ERROR = 3,    /**<  Erroneous header transmission (mismatch, parity error, physical bus error) */
-    LIN_TX_ERROR = 4,           /**<  Erroneous response transmission (mismatch, bus error) */
-    LIN_RX_OK = 5,              /**<  Reception of correct response */
-    LIN_RX_BUSY = 6,            /**<  Ongoing reception (response byte received, checksum not received) */
-    LIN_RX_ERROR = 7,           /**<  Erroneous response reception (framing, overrun, checksum, or short response error) */
-    LIN_RX_NO_RESPONSE = 8,     /**<  No response byte has been received */
-    LIN_OPERATIONAL = 9,        /**<  Normal operation; ready to transmit next header */
-    LIN_CH_SLEEP = 10           /**<  Sleep state operation; wake-up detection from slave nodes enabled */
+    LIN_NOT_OK,             /**<  Development or production error occurred */
+    LIN_TX_OK,              /**<  Successful transmission */
+    LIN_TX_BUSY,            /**<  Ongoing transmission (Header or Response) */
+    LIN_TX_HEADER_ERROR,    /**<  Erroneous header transmission (mismatch, parity error, physical bus error) */
+    LIN_TX_ERROR,           /**<  Erroneous response transmission (mismatch, bus error) */
+    LIN_RX_OK,              /**<  Reception of correct response */
+    LIN_RX_BUSY,            /**<  Ongoing reception (response byte received, checksum not received) */
+    LIN_RX_ERROR,           /**<  Erroneous response reception (framing, overrun, checksum, or short response error) */
+    LIN_RX_NO_RESPONSE,     /**<  No response byte has been received */
+    LIN_OPERATIONAL,        /**<  Normal operation; ready to transmit next header */
+    LIN_CH_SLEEP           /**<  Sleep state operation; wake-up detection from slave nodes enabled */
 } Lin_StatusType;
 
 /** 
@@ -89,12 +89,12 @@ typedef enum {
  * This enumeration represents the types of errors detected during the reception of
  */
 typedef enum {
-    LIN_ERR_HEADER = 0,             /**< Error in the header (e.g., identifier mismatch or physical error) */
-    LIN_ERR_RESP_STOPBIT = 1,       /**< Framing error in the response (stop bit error) */
-    LIN_ERR_RESP_CHKSUM = 2,        /**< Checksum error in the response */
-    LIN_ERR_RESP_DATABIT = 3,       /**< Monitoring error of a transmitted data bit in the response */
-    LIN_ERR_NO_RESP = 4,            /**< No response received from the slave */
-    LIN_ERR_INC_RESP = 5            /**< Incomplete response (missing bytes or invalid format) */
+    LIN_ERR_HEADER,             /**< Error in the header (e.g., identifier mismatch or physical error) */
+    LIN_ERR_RESP_STOPBIT,       /**< Framing error in the response (stop bit error) */
+    LIN_ERR_RESP_CHKSUM,        /**< Checksum error in the response */
+    LIN_ERR_RESP_DATABIT,       /**< Monitoring error of a transmitted data bit in the response */
+    LIN_ERR_NO_RESP,            /**< No response received from the slave */
+    LIN_ERR_INC_RESP            /**< Incomplete response (missing bytes or invalid format) */
 } Lin_SlaveErrorType;
 
 #endif /* LIN_GENERAL_TYPES_H */

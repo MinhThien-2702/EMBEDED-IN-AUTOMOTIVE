@@ -52,10 +52,10 @@ typedef struct {
  *           ControllerMode functions.
  */
 typedef enum {
-    CAN_CS_UNINIT = 0x00,  /**< @brief CAN controller state: UNINIT */
-    CAN_CS_STARTED = 0x01, /**< @brief CAN controller state: STARTED */
-    CAN_CS_STOPPED = 0x02, /**< @brief CAN controller state: STOPPED */
-    CAN_CS_SLEEP = 0x03    /**< @brief CAN controller state: SLEEP */
+    CAN_CS_UNINIT,  /**< @brief CAN controller state: UNINIT */
+    CAN_CS_STARTED, /**< @brief CAN controller state: STARTED */
+    CAN_CS_STOPPED, /**< @brief CAN controller state: STOPPED */
+    CAN_CS_SLEEP    /**< @brief CAN controller state: SLEEP */
 } Can_ControllerStateType;
 
 /** @brief Standard Return Type Extension for CAN
@@ -82,24 +82,21 @@ typedef enum {
  *           may report. Not all CAN hardware supports the complete set.
  */
 typedef enum {
-    CAN_ERROR_BIT_MONITORING1 = 0x01, /**< @brief Transmitted 0 but read back 1 */
-    CAN_ERROR_BIT_MONITORING0 = 0x02, /**< @brief Transmitted 1 but read back 0 */
-    CAN_ERROR_BIT = 0x03,             /**< @brief CAN bit error, unable to differentiate between MONITORING1 and MONITORING0 */
-    CAN_ERROR_CHECK_ACK_FAILED = 0x04, /**< @brief Acknowledgment check failed */
-    CAN_ERROR_ACK_DELIMITER = 0x05,    /**< @brief Acknowledgment delimiter check failed */
-    CAN_ERROR_ARBITRATION_LOST = 0x06, /**< @brief Sender lost arbitration */
-    CAN_ERROR_OVERLOAD = 0x07,         /**< @brief CAN overload detected, indicating full receive buffers */
-    CAN_ERROR_CHECK_FORM_FAILED = 0x08, /**< @brief Fixed frame format violation */
-    CAN_ERROR_CHECK_STUFFING_FAILED = 0x09, /**< @brief Stuffing bits not as expected */
-    CAN_ERROR_CHECK_CRC_FAILED = 0x0A, /**< @brief CRC check failed */
-    CAN_ERROR_BUS_LOCK = 0x0B          /**< @brief Bus lock (Bus stuck to dominant level) */
+    CAN_ERROR_BIT_MONITORING1, /**< @brief Transmitted 0 but read back 1 */
+    CAN_ERROR_BIT_MONITORING0, /**< @brief Transmitted 1 but read back 0 */
+    CAN_ERROR_BIT,             /**< @brief CAN bit error, unable to differentiate between MONITORING1 and MONITORING0 */
+    CAN_ERROR_CHECK_ACK_FAILED, /**< @brief Acknowledgment check failed */
+    CAN_ERROR_ACK_DELIMITER,    /**< @brief Acknowledgment delimiter check failed */
+    CAN_ERROR_ARBITRATION_LOST, /**< @brief Sender lost arbitration */
+    CAN_ERROR_OVERLOAD,         /**< @brief CAN overload detected, indicating full receive buffers */
+    CAN_ERROR_CHECK_FORM_FAILED, /**< @brief Fixed frame format violation */
+    CAN_ERROR_CHECK_STUFFING_FAILED, /**< @brief Stuffing bits not as expected */
+    CAN_ERROR_CHECK_CRC_FAILED, /**< @brief CRC check failed */
+    CAN_ERROR_BUS_LOCK          /**< @brief Bus lock (Bus stuck to dominant level) */
 } Can_ErrorType;
 
 /** @brief CAN Timestamp Type
  *  @details Represents timestamps based on relative time.
- *           Value range:
- *           - Seconds: 0 .. 4,294,967,295 s (approx. 136 years)
- *           - Nanoseconds: 0 .. 999,999,999 ns
  */
 typedef struct {
     uint32_t nanoseconds; /**< @brief Nanoseconds part of the timestamp */

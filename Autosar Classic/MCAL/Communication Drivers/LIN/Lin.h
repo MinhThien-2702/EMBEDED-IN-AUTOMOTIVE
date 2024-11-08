@@ -1,7 +1,7 @@
 /**
 * @file Lin.h
 * @brief LIN Driver implementation according to AUTOSAR Classic.
-* @details This file contains the implementation of the CAN driver as per AUTOSAR specifications.
+* @details This file contains the implementation of the LIN driver as per AUTOSAR specifications.
 * @author Nguyen Minh Thien
 * @date
 */
@@ -10,8 +10,8 @@
 #define LIN_H
 
 #include "Lin_GeneralTypes.h"
+#include "Lin_Cfg.h"
 #include "Std_Types.h"
-#include "stm32f10x.h"
 
 /**
  * @typedef Lin_ConfigType
