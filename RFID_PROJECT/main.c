@@ -4,6 +4,7 @@
 #include "i2c_lcd.h"
 #include <stdio.h>
 #include "servo.h"
+#include "sd_card.h"
 void My_GPIO_Init(void);
 
 uint8_t CardID[5];

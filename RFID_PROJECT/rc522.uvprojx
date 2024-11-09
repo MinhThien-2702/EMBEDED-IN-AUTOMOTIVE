@@ -10,8 +10,8 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pCCUsed>6140000::V6.14::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103C8</Device>
@@ -134,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -322,7 +322,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -448,6 +448,41 @@
               <FileType>5</FileType>
               <FilePath>.\servo.h</FilePath>
             </File>
+            <File>
+              <FileName>diskio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\diskio.h</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ff.h</FilePath>
+            </File>
+            <File>
+              <FileName>ffconf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ffconf.h</FilePath>
+            </File>
+            <File>
+              <FileName>sdmm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sdmm.c</FilePath>
+            </File>
+            <File>
+              <FileName>sd_card.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sd_card.c</FilePath>
+            </File>
+            <File>
+              <FileName>sd_card.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\sd_card.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -463,8 +498,8 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.4.0" condition="ARMv6_7_8-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.1.0" condition="ARMv6_7_8-M Device">
+        <package license="LICENSE" name="CMSIS" schemaVersion="1.7.36" url="https://www.keil.com/pack/" vendor="ARM" version="6.1.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>

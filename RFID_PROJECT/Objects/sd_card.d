@@ -1,4 +1,4 @@
-./objects/i2c.o: i2c.c \
+./objects/sd_card.o: sd_card.c sd_card.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   RTE\_Target_1\RTE_Components.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm3.h \
@@ -16,4 +16,4 @@
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_spi.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_tim.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\misc.h \
-  I2C.h
+  delay.h ff.h ffconf.h

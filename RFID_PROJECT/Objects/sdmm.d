@@ -1,8 +1,8 @@
-./objects/i2c.o: i2c.c \
+./objects/sdmm.o: sdmm.c ff.h ffconf.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h diskio.h delay.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   RTE\_Target_1\RTE_Components.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm3.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_version.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_compiler.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_armclang.h \
@@ -16,4 +16,4 @@
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_spi.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_tim.h \
   C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\misc.h \
-  I2C.h
+  spi.h
