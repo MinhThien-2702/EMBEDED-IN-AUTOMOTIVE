@@ -244,6 +244,12 @@ typedef enum {
     SPI_SEQ_CANCELED = 0x03   /**< Sequence was canceled */
 } Spi_SeqResultType;
 
+typedef enum {
+	E_OK,
+	E_NOT_OK,
+    CAN_BUSY
+} Std_ReturnType;
+
 /** 
  * @brief  Type definition for data buffer in SPI communication.
  */
