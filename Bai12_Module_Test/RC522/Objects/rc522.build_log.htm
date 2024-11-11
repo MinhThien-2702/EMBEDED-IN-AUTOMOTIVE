@@ -21,193 +21,13 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
 Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
-D:\EMBEDED IN AUTOMOTIVE\RC522\rc522.uvprojx
+D:\EMBEDED IN AUTOMOTIVE\Bai12_Module_Test\RC522\rc522.uvprojx
 Project File Date:  10/11/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild target 'Target 1'
-C:/Users/ASUS/Downloads/RC522 wBL/i2c_lcd.c(124): warning: passing 'char *' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
-                I2C_Read(I2C_LCD_ADDR + 1, &temp, 1);
-                                           ^~~~~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.h(10): note: passing argument to parameter 'pData' here
-uint8_t I2C_Read(uint8_t Address, uint8_t *pData, uint8_t length);
-                                           ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c_lcd.c(104): warning: no previous prototype for function 'LCD_WaitBusy' [-Wmissing-prototypes]
-void LCD_WaitBusy(void)
-     ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c_lcd.c(104): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void LCD_WaitBusy(void)
-^
-static 
-C:/Users/ASUS/Downloads/RC522 wBL/i2c_lcd.c(150): warning: no previous prototype for function 'LCD_Write_Chr' [-Wmissing-prototypes]
-void LCD_Write_Chr(char chr)
-     ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c_lcd.c(150): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void LCD_Write_Chr(char chr)
-^
-static 
-3 warnings generated.
-compiling i2c_lcd.c...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/misc.c(131): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-    NVIC->IPR[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
-                                                ~ ^~~~~~~~~~~
-1 warning generated.
-compiling misc.c...
-C:/Users/ASUS/Downloads/RC522 wBL/delay.c(1): warning: In file included from...
-C:/Users/ASUS/Downloads/RC522 wBL/delay.h(4): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(8347): warning: In file included from...
-./RTE/Device/STM32F103C8\stm32f10x_conf.h(87): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_tim.h(50): warning: padding size of 'TIM_TimeBaseInitTypeDef' with 1 byte to alignment boundary [-Wpadded]
-typedef struct
-        ^
-1 warning generated.
-compiling delay.c...
-C:/Users/ASUS/Downloads/RC522 wBL/main.c(9): warning: no previous extern declaration for non-static variable 'CardID' [-Wmissing-variable-declarations]
-uint8_t CardID[5];
-        ^
-C:/Users/ASUS/Downloads/RC522 wBL/main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t CardID[5];
-^
-C:/Users/ASUS/Downloads/RC522 wBL/main.c(10): warning: no previous extern declaration for non-static variable 'szBuff' [-Wmissing-variable-declarations]
-char szBuff[100];
-     ^
-C:/Users/ASUS/Downloads/RC522 wBL/main.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char szBuff[100];
-^
-2 warnings generated.
-compiling main.c...
-C:/Users/ASUS/Downloads/RC522 wBL/spi.c(9): warning: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-        return SPI_I2S_ReceiveData(SPI2);
-        ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~
-1 warning generated.
-compiling spi.c...
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(6): warning: non-portable path to file '"i2c.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include "I2C.h"
-         ^~~~~~~
-         "i2c.h"
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(67): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-  Timed(I2C_GetFlagStatus(I2Cx, I2C_FLAG_BUSY));
-                                               ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(77): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-  Timed(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_MODE_SELECT));
-                                                            ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(85): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-  Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_ADDR));
-                                                ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(103): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-      Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_RXNE));
-                                                    ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(122): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-      Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_BTF));
-                                                   ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(126): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-      *buf++ = I2Cx->DR;
-             ~ ~~~~~~^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(129): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-      *buf++ = I2Cx->DR;
-             ~ ~~~~~~^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(140): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-          Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_BTF)); 
-                                                       ^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(144): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-      Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_BTF));  
-                                                   ^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(159): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-      Timed(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_BYTE_RECEIVED)); 
-                                                                  ^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(168): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-  Timed(I2C_GetFlagStatus(I2Cx, I2C_FLAG_STOPF));
-                                                ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(191): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-        Timed(I2C_GetFlagStatus(I2Cx, I2C_FLAG_BUSY));
-                                                     ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(196): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-        Timed(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_MODE_SELECT));
-                                                                  ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(201): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-        Timed(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
-                                                                                ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(213): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-          Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_BTF));  
-                                                       ^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(217): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-        Timed(!I2C_GetFlagStatus(I2Cx, I2C_FLAG_BTF));  
-                                                     ^~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(219): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
-        Timed(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
-                                                      ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(1): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(8347): warning: In file included from...
-./RTE/Device/STM32F103C8\stm32f10x_conf.h(66): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_i2c.h(49): warning: padding size of 'I2C_InitTypeDef' with 2 bytes to alignment boundary [-Wpadded]
-typedef struct
-        ^
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(286): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-    I2C_InitStructure.I2C_OwnAddress1 = OwnAddress;
-                                      ~ ^~~~~~~~~~
-C:/Users/ASUS/Downloads/RC522 wBL/i2c.c(289): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-    I2C_InitStructure.I2C_ClockSpeed = ClockSpeed;
-                                     ~ ^~~~~~~~~~
-21 warnings generated.
-compiling i2c.c...
-compiling mfrc522.c...
-compiling stm32f10x_gpio.c...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_i2c.c(22): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_i2c.h(49): warning: padding size of 'I2C_InitTypeDef' with 2 bytes to alignment boundary [-Wpadded]
-typedef struct
-        ^
-1 warning generated.
-compiling stm32f10x_i2c.c...
-compiling stm32f10x_rcc.c...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_spi.c(22): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_spi.h(86): warning: padding size of 'I2S_InitTypeDef' with 2 bytes to alignment boundary [-Wpadded]
-typedef struct
-        ^
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_spi.c(493): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  itmask = (uint16_t)1 << (uint16_t)itpos;
-         ~ ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_spi.c(838): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  itpos = 0x01 << (SPI_I2S_IT & 0x0F);
-        ~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_spi.c(844): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  itmask = 0x01 << itmask;
-         ~ ~~~~~^~~~~~~~~
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_spi.c(890): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  itpos = 0x01 << (SPI_I2S_IT & 0x0F);
-        ~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~
-5 warnings generated.
-compiling stm32f10x_spi.c...
-assembling startup_stm32f10x_md.s...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_tim.c(22): warning: In file included from...
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc\stm32f10x_tim.h(50): warning: padding size of 'TIM_TimeBaseInitTypeDef' with 1 byte to alignment boundary [-Wpadded]
-typedef struct
-        ^
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_tim.c(725): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-             TIM_BDTRInitStruct->TIM_Break | TIM_BDTRInitStruct->TIM_BreakPolarity |
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_tim.c(1982): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  tmp = CCER_CCE_Set << TIM_Channel;
-      ~ ~~~~~~~~~~~~~^~~~~~~~~~~~~~
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_tim.c(2012): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  tmp = CCER_CCNE_Set << TIM_Channel;
-      ~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
-C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_tim.c(2057): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
-  tmp1 = CCER_CCE_Set << (uint16_t)TIM_Channel;
-       ~ ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
-5 warnings generated.
-compiling stm32f10x_tim.c...
-RTE/Device/STM32F103C8/system_stm32f10x.c(166): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
-__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
-            ^
-RTE/Device/STM32F103C8/system_stm32f10x.c(166): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
-    ^
-1 warning generated.
-compiling system_stm32f10x.c...
-linking...
-Program Size: Code=5658 RO-data=362 RW-data=4 ZI-data=1764  
-".\Objects\rc522.axf" - 0 Error(s), 41 Warning(s).
+Build target 'Target 1'
+".\Objects\rc522.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -247,32 +67,32 @@ Package Vendor: Keil
       Source file:   Device\Source\system_stm32f10x.c
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
-      Source file:   Device\StdPeriph_Driver\src\misc.c
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
       Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
 
    * Component: Keil::Device:StdPeriph Drivers:I2C:3.6.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_i2c.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
 
    * Component: Keil::Device:StdPeriph Drivers:SPI:3.6.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
 
    * Component: Keil::Device:StdPeriph Drivers:TIM:3.6.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
-Build Time Elapsed:  00:00:02
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
