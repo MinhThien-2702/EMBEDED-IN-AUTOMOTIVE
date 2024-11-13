@@ -12,6 +12,17 @@
 #include "Std_Types.h"
 #include "stm32f10x_gpio.h"
 
+/* DIO module version information */
+#define DIO_MODULE_ID             120U
+#define DIO_SW_MAJOR_VERSION      1U
+#define DIO_SW_MINOR_VERSION      0U
+#define DIO_SW_PATCH_VERSION      0U
+#define DIO_VENDOR_ID             65535U
+
+/* Dio channel levels */
+#define STD_HIGH                  0x01U
+#define STD_LOW                   0x00U
+
 /* Định nghĩa các cổng GPIO */
 #define DIO_PORT_A   0  /* Ánh xạ cho cổng GPIOA */
 #define DIO_PORT_B   1  /* Ánh xạ cho cổng GPIOB */
